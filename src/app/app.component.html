@@ -1,3 +1,4 @@
+<h2>Context-aware template </h2>
 <app-list
   [itemTemplate]="customItemTemplate"
   [data]="[
@@ -13,11 +14,24 @@
   <div style="display: flex; justify-content: space-between;">
     <span>{{item.id}} - <b>{{item.name}}</b></span>
     <mark>Stars: {{item.rating}}</mark>
-
   </div>
 </ng-template>
 
 
+<h2>Template overloading</h2>
 <app-card [title]="'Hello card'">
   <p>I am an awsome card</p>
+</app-card>
+
+<h2>Card component (string)</h2>
+<app-card [title]="'Hello card'">
+  <p>I am an awsome card</p>
+</app-card>
+
+<h2>Card component (templateRef)</h2>
+<app-card [titleTemplate]="title">
+  <ng-template #title>
+    <h2>Hellooooo card</h2>
+  </ng-template>
+  <p>I am an ausome carddddd.</p>
 </app-card>

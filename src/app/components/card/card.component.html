@@ -1,7 +1,18 @@
-<div class="card">
+<!-- <div class="card">
   <header>{{title}}</header>
   <article>
     <ng-content></ng-content>
   </article>
+</div> -->
 
+<div class="card">
+  <header *ngIf="isTitleAsString(); else titleTemplateWrapper">{{title}}</header>
+  <ng-template #titleTemplateWrapper>
+    <ng-container [ngTemplateOutlet]="titleTemplate">
+
+    </ng-container>
+  </ng-template>
+  <article>
+    <ng-content></ng-content>
+  </article>
 </div>
