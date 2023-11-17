@@ -1,0 +1,10 @@
+<section class="flex justify-end p-3 pr-0" aria-label="select food section">
+  <form [formGroup]="form" aria-label="select food form">
+    <select class="p1-2 w-[200px] text-base" name="option" formControlName="option" aria-label="select food">
+      <option value="ALL">Show all</option>
+      <option value="AVAILABLE">Show available only</option>
+      <option value="LOW_SUPPLY">Show low supply</option>
+      <option value="SOLD_OUT">Show sold out</option>
+    </select>
+  </form>
+</section>
