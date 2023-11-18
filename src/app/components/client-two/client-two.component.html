@@ -1,0 +1,10 @@
+<!-- <app-selector-03  [options]="sharks" [displayFunc]="appendFunc"></app-selector-03> -->
+
+<ng-template #sharkTemplate let-shark>
+    {{appendFunc(shark)}}
+</ng-template>
+
+<app-selector
+    [options]="sharks"
+    [optionTemplate]="sharkTemplate">
+</app-selector>

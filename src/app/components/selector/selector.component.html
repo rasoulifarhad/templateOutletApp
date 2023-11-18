@@ -1,0 +1,45 @@
+<!-- <div dropdown>
+  <button dropdownToggle>{{selected || 'Select'}}</button>
+  <ul dropdownMenu>
+    <li
+      *ngFor="let option of options"
+      (click)="selectOption(option)">
+        {{option}}
+    </li>
+  </ul>
+</div> -->
+
+<!-- <div dropdown>
+  <button dropdownToggle>{{selected || 'Select'}}</button>
+  <ul *dropdownMenu>
+    <li
+      *ngFor="let option of options"
+      (click)="selectOption(option)">
+
+        <fa-icon *ngIf="getIconFunc(option)" [icon]="getIconFunc(option) "></fa-icon>
+        {{displayFunc(option)}}
+
+    </li>
+  </ul>
+</div> -->
+
+
+<div dropdown>
+  <button dropdownToggle>{{selected || 'Select'}}</button>
+  <ul *dropdownMenu>
+    <li *ngFor="let option of options; index as i">
+      <!-- Define a default template -->
+      <ng-template #defaultTemplate let-option>{{option}}</ng-template>
+        <!-- <ng-container
+            *ngTemplateOutlet="optionTemplate || defaultTemplate; context:{ $implicit: option, idx: i }">
+        </ng-container> -->
+
+      <ng-container
+            [ngTemplateOutlet]="optionTemplate || defaultTemplate"
+            [ngTemplateOutletContext]="{ $implicit: option, idx: i }">
+
+      </ng-container>
+
+    </li>
+  </ul>
+</div>

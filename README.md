@@ -25,3 +25,86 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+sEE https://www.tutorialspoint.com/ngx_bootstrap/ngx_bootstrap_environment.htm
+
+See https://angular.io/api/common/NgTemplateOutlet
+See https://angularindepth.com/posts/1405/ngtemplateoutlet
+See https://dev.to/railsstudent/customize-template-with-ngtemplateoutlet-and-ngtemplate-in-angular-k5l
+See https://angularindepth.com/posts/1405/ngtemplateoutlet
+See https://dzone.com/articles/not-sure-how-to-use-ngtemplateoutlet-let-us-show-y
+See https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
+See https://angular.io/api/common/NgComponentOutlet
+
+
+
+NgTemplateOutlet
+
+ngTemplateOutlet acts as a placeholder to render a template after providing that template with context. In our case we want a template placeholder for each dropdown option and the context would be the shark.
+
+The Angular documentation for ngTemplateOutlet is currently a little lacking. This issue has been raised and ideas on how to demonstrate the feature have started being shared.
+Defining a Template
+
+Before we can use ngTemplateOutlet we must first define a template using <ng-template>. The template is the body of the <ng-template> element.
+
+<ng-template #myTemplate>
+  <div>Hello template</div>
+</ng-template>
+
+To reference the template we name it via # syntax. By adding #myTemplate to the element we can get a reference to the template using the name myTemplate . The type of myTemplate is [TemplateRef](https://angular.io/api/core/TemplateRef).
+Rendering a Template
+
+The content of a <ng-Template> element is not rendered in the browser. To have the template body rendered we must now pass the template reference to a ngTemplateOutlet.
+
+<!-- Define our template -->
+<ng-template #myTemplate> World! </ng-template>
+ 
+Hello
+<!-- Render the template in this outlet -->
+<ng-container [ngTemplateOutlet]="myTemplate"></ng-container>
+
+Hello World Template
+
+Rendered output of our template and outlet
+
+ng-template and ngTemplateOutlet enable us to define re-usable templates which in itself is a powerful feature but we are just getting started!
+Supplying the Template Context
+
+We can take templates to the next level by supplying a context. This enables us to pass data to the template. In our case the data is the shark for the current option. To pass context to a template you use [ngTemplateOutletContext].
+
+Here we are passing each dropdown option to the optionTemplate. This will enable the option template to display a different value for each item in the list. We are also setting the current index to the idx property of our context as this can be useful for styling.
+
+<li *ngFor="let item of items; index as i">
+  <!-- Setting the option as the $implicit property of our context along with the row index -->
+  <ng-container
+    [ngTemplateOutlet]="optionTemplate"
+    [ngTemplateOutletContext]="{ $implicit: option, idx: i }"
+  ></ng-container>
+</li>
+ 
+<!-- selector.component.html -->
+
+You can also use the abbreviated syntax below.
+
+<!-- Alternative syntax -->
+<ng-container
+  *ngTemplateOutlet="optionTemplate; context:{ $implicit: option, idx: i }"
+></ng-container>
+
+Using the Context in your template
+
+To access the context in our template we use let-* syntax to define template input variables. To bind the $implicit property to a template variable called option we add let-option to our template. We can use any name for our template variable so let-item or let-shark would also bind to the $implicit property in the context.
+
+This enables us to define a template outside of the selector component but with access to current option just as if our template was defined in the dropdown itself!
+
+<ng-template #optionTemplate let-option let-position="idx">
+  {{ position }} : {{option}}
+</ng-template>
+ 
+<!-- client-one.component.html -->
+
+To access the other properties on our context we have to be more explicit. To bind the idx value to a template variable called position we add let-position=idx. Alternatively we could name it id by adding let-id=idx.
+
+Note that we must know the exact property name when extracting values from the context that are not the $implicit property. The $implicit property is a handy tool which means users do not have to be aware of this name as well as having to write less code.
+
+By using template input variables we are able to combine state from where we define the template, with the context provided to us where the template is instantiated. This provides us with some amazing capabilities!

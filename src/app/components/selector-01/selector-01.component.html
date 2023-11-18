@@ -1,0 +1,11 @@
+<div dropdown>
+  <button dropdownToggle>{{selected || 'Select'}}</button>
+  <ul *dropdownMenu>
+    <li
+      *ngFor="let option of options"
+      (click)="selectOption(option)">
+        {{option}}
+    </li>
+  </ul>
+</div>
+

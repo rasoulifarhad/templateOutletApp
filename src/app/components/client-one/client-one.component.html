@@ -1,0 +1,19 @@
+<!-- <app-selector  [options]="sharks"  [getIconFunc]="getIconFunc">
+
+</app-selector> -->
+
+<!-- <ng-template #optionTemplate let-option let-position="idx">
+  {{position}} : {{option}}
+</ng-template> -->
+
+<ng-template #sharkTemplate let-shark >
+  <fa-icon [icon]="getIconFunc(shark) "></fa-icon>
+  {{shark}}
+</ng-template>
+
+<app-selector
+    [options]="sharks"
+    [optionTemplate]="sharkTemplate">
+
+</app-selector>
+
