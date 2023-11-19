@@ -24,12 +24,27 @@
 </div> -->
 
 
-<div dropdown>
-  <button dropdownToggle>{{selected || 'Select'}}</button>
-  <ul *dropdownMenu>
-    <li *ngFor="let option of options; index as i">
+<div class="app-selector btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+
+    <ng-template #defaultSelected>
+      {{selected?.name || selected ||  label}}
+    </ng-template>
+    <ng-container
+        [ngTemplateOutlet]="selectedTemplateRef || defaultSelected"
+        [ngTemplateOutletContext]="{$implicit: selected}">
+    </ng-container>
+    <span class="caret"> </span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu">
+    <li *ngFor="let option of options; index as i"
+        (click)="selectOption(option)">
       <!-- Define a default template -->
-      <ng-template #defaultTemplate let-option>{{option}}</ng-template>
+      <ng-template #defaultTemplate let-option>
+        <a class="dropdown-item">
+          {{option?.name || option}}
+        </a>
+      </ng-template>
         <!-- <ng-container
             *ngTemplateOutlet="optionTemplate || defaultTemplate; context:{ $implicit: option, idx: i }">
         </ng-container> -->

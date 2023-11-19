@@ -4,7 +4,26 @@
     {{appendFunc(shark)}}
 </ng-template>
 
-<app-selector
+<ng-template #tractorTemplate let-tractor let-id="index">
+    <div>
+        <div>
+            <b>{{tractor.name}}</b>
+        </div>
+        <img height="100" width="150" src="{{tractor.img}}" alt="">
+        <span * ngFor="let i of [].constructor(tractor.stars)"> &#x2B50;</span>
+        <button class="btn btn-danger" style="width: 100%;">Buy Now!</button>
+    </div>
+</ng-template>
+
+<ng-template #selectedTemplate let-tractor>
+    {{tractor?.name || "Tractor"}}
+</ng-template>
+<!-- <app-selector
     [options]="sharks"
     [optionTemplate]="sharkTemplate">
+</app-selector> -->
+<app-selector
+    [options]="tractors"
+    [optionTemplate]="tractorTemplate"
+    [selectedTemplateRef]="selectedTemplate">
 </app-selector>

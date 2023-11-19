@@ -7,18 +7,22 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './selector.component.html',
   styleUrls: ['./selector.component.css']
 })
-export class SelectorComponent {
+export class SelectorComponent<T extends {name: string}> {
 
-  selected?: string;
+  selected?: T;
 
   @Input()
-  options?: string[];
+  label?: string
+  @Input()
+  options?: T[];
 
   @Input()
   optionTemplate?: TemplateRef<any>
 
+  @Input()
+  selectedTemplateRef?: TemplateRef<any>;
   @Output()
-  selectionChanged = new EventEmitter<string>();
+  selectionChanged = new EventEmitter<T>();
 
   @Input()
   displayFunc: (value: string) => string = x => x;
@@ -29,7 +33,7 @@ export class SelectorComponent {
   @Input()
   name?: string;
 
-  selectOption(option: string) {
+  selectOption(option: T) {
     this.selected = option;
     this.selectionChanged.emit(option);
   }
