@@ -108,3 +108,32 @@ To access the other properties on our context we have to be more explicit. To bi
 Note that we must know the exact property name when extracting values from the context that are not the $implicit property. The $implicit property is a handy tool which means users do not have to be aware of this name as well as having to write less code.
 
 By using template input variables we are able to combine state from where we define the template, with the context provided to us where the template is instantiated. This provides us with some amazing capabilities!
+
+
+
+See https://angularindepth.com/posts/1234/implementing-shared-logic-for-crud-ui-components-in-angular
+See https://github.com/dasch-swiss/dsp-ui-lib/blob/f27b1758822d56e8f38ffdfa2b7d03b443dedeb6/projects/knora-ui/src/lib/viewer/operations/display-edit/display-edit.component.html
+
+See https://angularindepth.com/posts/1189/angular-bad-practices-revisited
+See https://angularindepth.com/posts/1155/build-your-own-observable-part-1-arrays;
+See https://angularindepth.com/posts/1157/building-your-own-observable-part-3-the-observer-pattern-and-creational-methods
+See https://angularindepth.com/posts/1158/build-your-own-observable-part-4-map-filter-take-and-all-that-jazz
+
+See https://angularindepth.com/posts/1297/building-a-reusable-menu-component
+See https://angularindepth.com/posts/1314/agnostic-components-in-angular
+See https://angularindepth.com/posts/1439/learn-angular-component-design-patterns-creating-a-drawer-component-2
+See https://angularindepth.com/posts/1065/do-you-really-know-what-unidirectional-data-flow-means-in-angular
+See https://angularindepth.com/posts/1119/the-essential-difference-between-constructor-and-ngoninit-in-angular
+See https://angularindepth.com/posts/1004/the-mechanics-of-property-bindings-update-in-angular
+See https://angularindepth.com/posts/1163/implementing-custom-component-decorator-in-angular
+See https://angularindepth.com/posts/1129/the-mechanics-of-dom-updates-in-angular
+See https://angularindepth.com/posts/1405/ngtemplateoutlet
+See https://angularindepth.com/posts/1414/angular-and-solid-principles
+See https://angularindepth.com/posts/1414/angular-and-solid-principles
+See https://angularindepth.com/posts/1478/designing-angular-architecture-container-presentation-pattern
+See https://angularindepth.com/posts/1494/complete-guide-angular-lifecycle-hooks
+See https://angularindepth.com/posts/1512/change-detection-and-component-trees-in-angular-applications
+
+
+
+

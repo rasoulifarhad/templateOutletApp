@@ -23,6 +23,9 @@ import { Selector01Component } from './components/selector-01/selector-01.compon
 import { Selector03Component } from './components/selector-03/selector-03.component';
 import { ClientOneComponent } from './components/client-one/client-one.component';
 import { ClientTwoComponent } from './components/client-two/client-two.component';
+import { DisplayEditComponent } from './crud/operations/display-edit/display-edit.component';
+import { MenuComponent } from './menu/menu/menu.component';
+import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { ClientTwoComponent } from './components/client-two/client-two.component
     Selector03Component,
     ClientOneComponent,
     ClientTwoComponent,
+    DisplayEditComponent,
+    MenuComponent,
+    MenuItemComponent,
   ],
   imports: [
     BrowserModule,
