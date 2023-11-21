@@ -18,8 +18,34 @@ export class MenuItemComponent implements OnInit {
   }
 
   public onClick() {
-    console.log('parent:', this.parent);
-    this.addTemplateToContainer(this.menuFor);
+    if (this.containerIsEmpty() ) {
+      this.closeAlreadyOpenedMenuInTheSameSubTree();
+      this.registerOpenedMenu();
+      this.addTemplateToContainer(this.menuFor);
+    } else {
+      this.clearContainer();
+    }
+  }
+
+  registerOpenedMenu() {
+    if(this.parent) {
+      this.parent.registerMenuItem(this);
+    }
+  }
+
+  closeAlreadyOpenedMenuInTheSameSubTree() {
+    if(this.parent) {
+      this.parent.closeOpenedMenuIfExists();
+    }
+  }
+
+  private containerIsEmpty() : boolean{
+    return this.viewContainerRef.length === 0;
+  }
+
+
+  public clearContainer() : void {
+    this.viewContainerRef.clear();
   }
 
   addTemplateToContainer(template: TemplateRef<MenuComponent>) {
