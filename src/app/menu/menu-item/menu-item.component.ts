@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, Optional, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Inject, Input, OnInit, Optional, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
+import { DOCUMENT } from '@angular/common';
+import { EventManager } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-menu-item',
@@ -12,19 +14,45 @@ export class MenuItemComponent implements OnInit {
 
   @ViewChild('viewContainerRef', {read: ViewContainerRef}) public viewContainerRef!: ViewContainerRef;
 
-  constructor(@Optional() private parent?: MenuComponent) {}
+  constructor(
+              @Inject(DOCUMENT) private documentRef: Document,
+              private eventManager: EventManager,
+              @Optional() private parent?: MenuComponent) {}
+
+  private removeGlobalEventListener?: Function;
 
   ngOnInit(): void {
+    console.log(this.documentRef.URL);
   }
 
   public onClick() {
     if (this.containerIsEmpty() ) {
+      this.addHandlersForRootElement();
       this.closeAlreadyOpenedMenuInTheSameSubTree();
       this.registerOpenedMenu();
       this.addTemplateToContainer(this.menuFor);
     } else {
+      this.removeClickOutsideListener();
       this.clearContainer();
     }
+  }
+
+  removeClickOutsideListener() {
+    throw new Error('Method not implemented.');
+  }
+
+  addHandlersForRootElement() {
+    if(this.isRoot()) {
+      this.addClickOutsideListener();
+    }
+  }
+
+  addClickOutsideListener() {
+    // this.removeGlobalEventListener =  this.eventManager.addEventListener('window', 'click',this.closeMenuOnOutsideClick(this));
+  }
+
+  private closeMenuOnOutsideClick(target: any): void {
+    console.log(target);
   }
 
   registerOpenedMenu() {
