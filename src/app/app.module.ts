@@ -57,7 +57,7 @@ import { MenuItemComponent } from './menu/menu-item/menu-item.component';
     FontAwesomeModule
 
   ],
-  providers: [BsDropdownConfig  ],
+  providers: [BsDropdownConfig, MenuComponent, MenuItemComponent  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

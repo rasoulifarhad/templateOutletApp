@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -9,4 +9,6 @@ export class MenuComponent {
 
   @HostBinding('style.display') public display = 'inline-block';
   @HostBinding('style.position') public position = 'absolute';
+
+  @Input() name!: string;
 }
