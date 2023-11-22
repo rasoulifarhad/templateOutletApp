@@ -26,6 +26,7 @@ import { ClientTwoComponent } from './components/client-two/client-two.component
 import { DisplayEditComponent } from './crud/operations/display-edit/display-edit.component';
 import { MenuComponent } from './menu/menu/menu.component';
 import { MenuItemComponent } from './menu/menu-item/menu-item.component';
+import { SharkDirective } from './shark.directive';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MenuItemComponent } from './menu/menu-item/menu-item.component';
     DisplayEditComponent,
     MenuComponent,
     MenuItemComponent,
+    SharkDirective,
   ],
   imports: [
     BrowserModule,
