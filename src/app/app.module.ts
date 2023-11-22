@@ -27,6 +27,7 @@ import { DisplayEditComponent } from './crud/operations/display-edit/display-edi
 import { MenuComponent } from './menu/menu/menu.component';
 import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { SharkDirective } from './shark.directive';
+import { PupComponent } from './pup/pup.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SharkDirective } from './shark.directive';
     MenuComponent,
     MenuItemComponent,
     SharkDirective,
+    PupComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { SharkDirective } from './shark.directive';
+import { PupComponent } from './pup/pup.component';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,12 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('favoriteSeaCrerature')
   favoriteSeaCrerature!: ElementRef;
 
+  @ViewChild(PupComponent)
+  pup!: PupComponent;
+
   ngAfterViewInit(): void {
     console.log(this.extraCreature);
+    console.log(this.pup.whoAmI());
   }
 
   @ViewChild(SharkDirective)
