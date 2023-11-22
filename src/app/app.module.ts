@@ -28,6 +28,7 @@ import { MenuComponent } from './menu/menu/menu.component';
 import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { SharkDirective } from './shark.directive';
 import { PupComponent } from './pup/pup.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PupComponent } from './pup/pup.component';
     MenuItemComponent,
     SharkDirective,
     PupComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
