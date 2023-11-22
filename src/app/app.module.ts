@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
+import { MatInputModule}  from '@angular/material/input'
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BsDropdownModule,BsDropdownConfig } from 'ngx-bootstrap/dropdown';
+import { ColorPickerModule } from 'ngx-color-picker';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { faSwimmer, faSkullCrossbones} from "@fortawesome/free-solid-svg-icons";
-
+import { MatIconModule } from '@angular/material/icon'
 import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { FoodMenuComponent } from './components/food-menu/food-menu.component';
@@ -31,6 +33,8 @@ import { PupComponent } from './pup/pup.component';
 import { HighlightDirective } from './highlight.directive';
 import { ChildDirective } from './child.directive';
 import { SelectComponent } from './select/select.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -64,7 +68,16 @@ import { SelectComponent } from './select/select.component';
     AppRoutingModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    ColorPickerModule,
+    MatCardModule
+
+
 
   ],
   providers: [BsDropdownConfig, MenuComponent, MenuItemComponent  ],

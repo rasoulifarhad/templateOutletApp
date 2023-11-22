@@ -1,5 +1,4 @@
 import { AfterViewInit, Directive, Input } from '@angular/core';
-
 @Directive({
   selector: 'app-child'
 })
