@@ -29,6 +29,8 @@ import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { SharkDirective } from './shark.directive';
 import { PupComponent } from './pup/pup.component';
 import { HighlightDirective } from './highlight.directive';
+import { ChildDirective } from './child.directive';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { HighlightDirective } from './highlight.directive';
     SharkDirective,
     PupComponent,
     HighlightDirective,
+    ChildDirective,
+    SelectComponent,
   ],
   imports: [
     BrowserModule,
